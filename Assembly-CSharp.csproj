@@ -38,7 +38,6 @@
   <ItemGroup>
      <Compile Include="Assets\Sprite\FocusEffect.cs" />
      <None Include="Assets\Sharder\CustomGrayScale.shader" />
-     <None Include="Assets\Sharder\BlackWhite.shader" />
     <Reference Include="UnityEngine">
         <HintPath>E:\unity\2021.3.11f1c2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
