@@ -34,14 +34,14 @@ public class FocusEffect : MonoBehaviour
 
     private void ApplyGrayScaleEffect()
     {
-        Camera.main.SetReplacementShader(grayScaleMaterial.shader, "RenderType");
+        Camera.main.SetReplacementShader(grayScaleShader, "CustomTag");
         uiCanvas.sortingLayerName = "Default";
         uiCanvas.sortingOrder = -1;
     }
 
     private void RemoveGrayScaleEffect()
     {
-        Camera.main.SetReplacementShader(null, "");
+        Camera.main.ResetReplacementShader();
         uiCanvas.sortingLayerName = "UI";
         uiCanvas.sortingOrder = 0;
     }
