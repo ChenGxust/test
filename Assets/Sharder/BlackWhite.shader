@@ -1,13 +1,19 @@
-Shader "Custom/BlackAndWhite" {
+Shader "Custom/GrayScale" {
     Properties {
         _MainTex ("Texture", 2D) = "white" {}
+        _Intensity ("Intensity", Range(0, 1)) = 1.0
     }
+
     SubShader {
-        Tags {"Queue"="Transparent" "RenderType"="Transparent"}
         Pass {
+            Tags {"Queue"="Transparent" "RenderType"="Opaque"}
+            ZWrite On
+            ColorMask RGB
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #include "UnityCG.cginc"
 
             struct appdata {
                 float4 vertex : POSITION;
@@ -20,6 +26,7 @@ Shader "Custom/BlackAndWhite" {
             };
 
             sampler2D _MainTex;
+            float _Intensity;
 
             v2f vert (appdata v) {
                 v2f o;
@@ -31,10 +38,9 @@ Shader "Custom/BlackAndWhite" {
             fixed4 frag (v2f i) : SV_Target {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 float gray = dot(col.rgb, float3(0.299, 0.587, 0.114));
-                return fixed4(gray, gray, gray, col.a);
+                return lerp(col, fixed4(gray, gray, gray, col.a), _Intensity);
             }
             ENDCG
         }
     }
-    FallBack "Diffuse"
 }

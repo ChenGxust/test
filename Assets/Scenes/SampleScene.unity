@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 0.5
-  grayScaleShader: {fileID: 4800000, guid: 06ee619f4a273aa4f89e5a9cb0b0411c, type: 3}
+  grayScaleShader: {fileID: 4800000, guid: 819fe47a7b85f5b4d8cf25a647789186, type: 3}
   player: {fileID: 252930729}
 --- !u!61 &252930733
 BoxCollider2D:
@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: CustomTag
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
